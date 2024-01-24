@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(to bottom, #6ab4f5,  #fff);
+    min-height: 100vh;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.img_PokemonContainer{
+  width: 400px;
+  padding: 20px;
+  display : grid;
+  grid-template-columns: auto auto;
+  gap: 30px 30px;
+}
+.img_PokemonContainer div{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  align-self: center;
+  justify-self: center;
+  padding: 20px 0px 0px 20px;
+}
+.imagemPokemonInicial{
+  height: 120px;
+  width: auto;
+}
+#bulbasaur{
+  transform: rotate(180deg);
+}
+#charmander{
+  transform: rotate(-90deg);
+}
+#squirtle{
+  transform: rotate(90deg);
+}
+
+.rotacionarElemento{
+  animation-name: rotacionar;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;  
+}
+
+.rotacionadoFinal {
+  transform: rotate(90deg);
+} 
+
+@keyframes rotacionar{
+  to{
+    transform: rotate(90deg);
+  }
+}
