@@ -1,54 +1,102 @@
-body {
-    background: linear-gradient(to bottom, #6ab4f5,  #fff);
-    min-height: 100vh;
-}
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.img_PokemonContainer{
-  width: 400px;
+body {
+    background: linear-gradient(to bottom, #6ab4f5,  #fff);
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "flip texto card" 
+    "selecao selecao selecao";
+}
+#a{
+  grid-area: flip;
+}
+#b{
+  grid-area: selecao;
+}
+#c{
+  grid-area: texto;
+}
+#d{
+  grid-area: card;
+}
+
+/*Container com o flip do pokemon*/
+.containerPokemonFlip{
+  width: 600px;
   padding: 20px;
   display : grid;
   grid-template-columns: auto auto;
-  gap: 30px 30px;
-}
-.img_PokemonContainer div{
-  height: 150px;
-  width: 150px;
+  gap: 100px 100px;
+  position: absolute;
+  top: -250px;
+  left: -250px;
+ }
+.containerPokemonFlip div{
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
-  background-color: aliceblue;
+  background-image: url("../Assents/images/BackgroundPokemon.jpg");
   align-self: center;
   justify-self: center;
   padding: 20px 0px 0px 20px;
+}
+.imagemPokemonInicialFlip{
+  height: 160px;
+  width: auto;
+}
+#bulbasaurFlip{
+  transform: rotate(180deg);
+}
+#charmanderFlip{
+  transform: rotate(-90deg);
+}
+#squirtleFlip{
+  transform: rotate(90deg);
+}
+
+
+/*Aba de pesquisa do pokemon*/
+.ProcurarPokemon{
+  height: 400px;
+}
+
+
+/*Container de Selecao do pokemonInicial*/
+.containerSelecaoPokemon{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.containerSelecaoPokemon li{
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 20px 0px 0px 20px;
+  list-style-type: none;
 }
 .imagemPokemonInicial{
   height: 120px;
   width: auto;
 }
-#bulbasaur{
-  transform: rotate(180deg);
+li:hover{
+  animation: MudarCorBackgroundEscolhaPokemon 300ms ease-in forwards;
 }
-#charmander{
-  transform: rotate(-90deg);
-}
-#squirtle{
-  transform: rotate(90deg);
-}
-
-.rotacionarElemento{
-  animation-name: rotacionar;
-  animation-timing-function: ease-in;
-  animation-duration: 2s;  
-}
-
-.rotacionadoFinal {
-  transform: rotate(90deg);
+.pesquisaPokemon{
+  height: 120px;
+  width: auto;
 } 
+.animacaoBackground{
+  animation: MudarCorBackgroundEscolhaPokemon 300ms ease-in forwards;
+}
 
-@keyframes rotacionar{
+@keyframes MudarCorBackgroundEscolhaPokemon {
   to{
-    transform: rotate(90deg);
+    background-color: #5cda36;
   }
 }
