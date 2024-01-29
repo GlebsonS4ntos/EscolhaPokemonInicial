@@ -1,16 +1,31 @@
 const escolhaPokemons = document.querySelectorAll('.navPorClick');
 const containerFlip = document.querySelector('.containerPokemonFlip')
 
+let ultimaAnimacaoEsconderOuAparecer = false;
+
 escolhaPokemons.forEach((pokemon) => {
     if(pokemon.classList.length === 2){ 
         pokemon.addEventListener('click', () =>{
             AdicionarAnimacaoDeBackgound(pokemon);
-            AnimacaoFlip(pokemon);
+            //Caso a ultima animacao for um true, quer dizer que ouve animacao de esconder, dai sera chamada a animacao de aparecer
+            if(ultimaAnimacaoEsconderOuAparecer){ 
+                AnimacaoEsconderOuAparecer();
+            }
+            setTimeout(() => {
+                AnimacaoFlip(pokemon);
+            }, ultimaAnimacaoEsconderOuAparecer? 1000: 0);
+            if(ultimaAnimacaoEsconderOuAparecer){
+                //troca o valor da variavel, isso tem que ocorrer apos o flip pois caso ocora antes vai bugar o setTimeOut
+                ultimaAnimacaoEsconderOuAparecer = !ultimaAnimacaoEsconderOuAparecer;
+            }
         });
     }else{
         pokemon.addEventListener('click', () =>{ 
             AdicionarAnimacaoDeBackgound(pokemon);
-            //adicionar animacoes pra ir pra aparecer a tela de pesquisa
+            //Caso a ultima animacao for false quer dizer que ouve animacao de aparecer, dai sera chamada a animacao de esconder
+            if(!ultimaAnimacaoEsconderOuAparecer){
+                AnimacaoEsconderOuAparecer();
+            }
          });
     }
     
@@ -40,4 +55,16 @@ function AnimacaoFlip(pokemon) {
 
     containerFlip.style.transition = "transform 2s ease-in-out";
     containerFlip.style.transform = `rotate(${anguloDeRotacao}deg)`;
+}
+
+function AnimacaoEsconderOuAparecer(){
+    //Caso a ultima animacao for um true, quer dizer que ouve animacao de esconder, dai sera chamada a animacao de aparecer
+    if(ultimaAnimacaoEsconderOuAparecer){ 
+        containerFlip.style.transition = "left 1s ease";
+        containerFlip.style.left = "-250px";
+    }else{ //Caso a ultima animacao for false quer dizer que ouve animacao de aparecer, dai sera chamada a animacao de esconder
+        containerFlip.style.transition = "left 1s ease";
+        containerFlip.style.left = "-650px";
+        ultimaAnimacaoEsconderOuAparecer = !ultimaAnimacaoEsconderOuAparecer; //troca o valor da variavel imediatamente
+    }
 }
