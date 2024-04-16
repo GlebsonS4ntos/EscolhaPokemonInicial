@@ -6,11 +6,11 @@
     <link rel="icon" href="Assents/favicon/favicon-16x16.png"/>
     <link rel="stylesheet" href="css/style.css">
     <title>Escolha seu Pokémon</title>
-    <script defer src="js/ImagensPokemon.js"></script>
-    <script defer src="js/EscolhaPokemon.js"></script>
+    <script defer type="module" src="js/Animacoes.js"></script>
+    <script defer type="module" src="js/PesquisaPokemon.js"></script>
 </head>
 <body>
-    <section id="a">
+    <section id="FlipOuProcurarPokemon">
         <div class="containerPokemonFlip">
             <div id="bulbasaurFlip">
                 <img src="" alt="" class="imagemPokemonInicialFlip"/>
@@ -25,11 +25,16 @@
                 <img src="" alt="" class="imagemPokemonInicialFlip"/>
             </div>
         </div>
-        <div class="ProcurarPokemon">
-
+        <div class="procurarPokemon">
+            <div class="pesquisarPokemon">
+                <h2>SEARCH YOUR POKÉMON</h2>
+                <input type="text" class="pesquisar">
+                <button class="botao"> SEARCH </button>
+                <span>POKÉMON NOT FOUND !</span>
+            </div>
         </div>
     </section>
-    <section id="b">
+    <section id="SelecaoPokemon">
         <nav>
             <ul class="containerSelecaoPokemon">
                 <li class="navPorClick bulbasaur"><img src="" alt="" class="imagemPokemonInicial"></li>
@@ -40,13 +45,22 @@
             </ul>
         </nav>
     </section>
-    <section id="c">
-        <div class="containerTitulo">
-            <h1>Escolha seu Pokémon</h1>
-            <img src="Assents/images/Pokebola.png" alt="">
+    <section id="informacoesDoPokemon">
+        <div class="containerInformacoes">
+            <h1>POKÉMON INFORMATION</h1>
+            <div>
+                <div class="informacao">
+                    NAME: <span>----</span>
+                    <p></p> 
+                </div>
+                <div class="informacao">
+                    TYPE: <span>--/--</span>
+                </div>
+                <div class="informacao">
+                    BASIC SKILLS: <span>-- | --</span>
+                </div>
+            </div>
         </div>
-    </section>
-    <section id="d">
     </section>
 </body>
 </html>
